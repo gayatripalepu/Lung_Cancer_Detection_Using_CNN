@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>File Upload</title>
+	<head>
+    
+    <style>
+        /* CSS for the panel */
+        .panel {
+            width: 800px;
+			margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: #f9f9f9;
+			color: dodgerblue;
+			text-align:center;
+			height:500px;
+        }
+		body{
+		background-image: url('/static/bg.jpg');
+    background-size: cover; /* Optional: cover th
+		}
+    </style>
+</head>
+</head>
+<body style="background-color:#c8c8c8">
+<div class="panel">
+    <h1 style="background-color:dodgerblue;color:white;">Upload a CT Scan File to Predict </h1>
+    <form method="POST" enctype="multipart/form-data" action="/upload">
+        <input type="file" name="file">
+        <input type="submit" value="Upload">
+    </form>
+	{% if filename %}
+    <h2>Uploaded Image:</h2>
+    <img src="{{ url_for('uploaded_file', filename=filename) }}" alt="Uploaded Image">
+    {% endif %}
+</div>	
+</body>
+</html>
